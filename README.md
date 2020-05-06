@@ -1,3 +1,3 @@
 # Sistem-Pendaftaran-Calon-Karyawan
 Update Implementasi WEB 1
-Update halaman registrasi
+Update halaman registrasi dan profil
