@@ -1,4 +1,4 @@
-<form action="cek_login.php" method="post">
+<!-- <form action="cek_login.php" method="post"> -->
 <?php 
 $koneksi = mysqli_connect("localhost","root","","pegawai");
  

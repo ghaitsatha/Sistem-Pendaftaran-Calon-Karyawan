@@ -31,7 +31,7 @@
         		<a class="nav-link" href="pendaftaran.php">Pendafataran<span class="sr-only">(current)</span></a>
       		</li>
       		<li class="nav-item">
-        		<a class="nav-link" href="#">About</a>
+        		<a class="nav-link" href="daftar_file.php">Daftar File</a>
       		</li>
       		<li class="nav-item">
         		<a class="nav-link" href="#">Pricing</a>
@@ -44,8 +44,8 @@
 	</nav>
 	<div class="jumbotron jumbotron-fluid">
   		<div class="container">
-    		<h1 class="display-4">Selamat Datang di Halaman Admin</h1>
-    			<p class="lead">Digunakan untuk admin.......</p>
+    		<h1 class="display-4">Selamat Datang di PT SUKSES</h1>
+    			<p class="lead">Silahkan isi form pendaftaran berikut jika ingin mendaftar</p>
   		</div>
 	</div>
 	

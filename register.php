@@ -1,3 +1,27 @@
+<?php
+  // defenisikan koneksi
+  include ('koneksi.php');
+  // cek apakah tombol simpan sudah ditekan
+  if (isset($_POST['register'])) {
+    // jika sudah, ambil nilai masing-masing field
+    $nik    = $_POST['nik'];
+    $nama   = $_POST['nama'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $level = $_POST['level'];
+    // query menyimpan data ke database
+    $sql = "INSERT INTO user(nik,nama,username,password,level)
+            VALUES('','$nik','$nama','$username','$password','$level')";
+    // cek apakah proses simpan berhasil
+    if (mysqli_query($koneksi, $sql)) {
+      // jika berhasil, redirect ke index.php
+      header('Location:index.php');
+    } else {
+      // jika tidak, tampilkan pesan gagal menyimpan
+      echo "menyimpan data tidak berhasil";
+    }
+  }
+ ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,19 +35,20 @@
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <title>SUKSES</title>
   </head>
   <body>
-    <form class="form-horizontal" action='<?php echo $action; ?>' method="POST">
+    <form class="kotak_login" action="" method="POST">
   <fieldset>
     <div id="legend">
-      <legend class="">Register</legend>
+      <legend class="tulisan_login">Register</legend>
     </div>
     <div class="control-group">
       <!-- NIK -->
-      <label class="control-label"  for="nik">Nik</label>
+      <label class="control-label"  for="nik" >Nik</label>
       <div class="controls">
-        <input type="text" id="nik" name="nama" placeholder="" class="input-xlarge" value="<?php echo (ISSET ($last['nik']))? $last['nik'] :''; ?>">
+        <input type="text" id="nik" name="nik" placeholder="" class="input-xlarge">
         <p class="help-block">Please Input Your NIK</p>
       </div>
     </div>
@@ -32,7 +57,7 @@
       <!-- Nama -->
       <label class="control-label" for="nama">Nama</label>
       <div class="controls">
-        <input type="text" id="nama" name="nama" placeholder="" class="input-xlarge" value="<?php echo (ISSET ($last['nama']))? $last['nama'] :''; ?>">
+        <input type="text" id="nama" name="nama" placeholder="" class="input-xlarge">
         <p class="help-block">Please Input Your Name</p>
       </div>
     </div>
@@ -41,7 +66,7 @@
       <!-- Username-->
       <label class="control-label" for="username">Username</label>
       <div class="controls">
-        <input type="username" id="username" name="username" placeholder="" class="input-xlarge" value="<?php echo (ISSET ($last['username']))? $last['username'] :''; ?>">
+        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
         <p class="help-block">Please Input Your Username</p>
       </div>
     </div>
@@ -50,18 +75,18 @@
       <!-- Password -->
       <label class="control-label"  for="password">Password</label>
       <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" value="<?php echo (ISSET ($last['password']))? $last['password'] :''; ?>">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
         <p class="help-block">Please Input Your Password</p>
       </div>
     </div>
 
     <div class="control-group">
       <!-- Password -->
-      <label class="control-label" for="level">Level</label>
+      <label class="control-label" for="level" >Level</label>
       <div class="controls">
-        <select class="input-xlarge" id="level" value="<?php echo (ISSET ($last['level']))? $last['level'] :''; ?>">
-          <option value="1">Admin</option>
-          <option value="2">Calon Pegawai</option>
+        <select class="input-xlarge" id="level" name="level">
+          <option>Admin</option>
+          <option>Calon Pegawai</option>
         </select>
       </div>
     </div>
@@ -69,11 +94,13 @@
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-        <button type="register" class="btn btn-success">Register</button>
+        <button type="register" class="btn btn-success" name="register">Register</button>
+        <a href="index.php" class="btn btn-primary">Login</a>
       </div>
     </div>
   </fieldset>
 </form>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

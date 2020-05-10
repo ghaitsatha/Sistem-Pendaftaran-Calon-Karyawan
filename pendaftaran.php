@@ -1,3 +1,23 @@
+<?php 
+    if(isset($_POST['submit'])){
+      include 'koneksi.php';
+      $submit = mysqli_query($koneksi, "INSERT INTO pegawai VALUES (
+        NULL,
+        '".$_POST['nik']."',
+        '".$_POST['nama']."',
+        '".$_POST['tgl_lahir']."-".$_POST['tgl']."-".$_POST['bln']."-".$_POST['thn']."',
+        '".$_POST['email']."',
+        '".$_POST['alamat']."',
+        '".$_POST['pendidikan']."',
+        '".$_POST['jurusan']."',
+        '".$_POST['foto']."')");
+      if($submit){
+        echo 'berhasil submit';
+      }else{
+        echo 'gagal submit';
+      }
+    }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -32,10 +52,10 @@
   	<div class="collapse navbar-collapse" id="navbarText">
     	<ul class="navbar-nav mr-auto">
       		<li class="nav-item active">
-        		<a class="nav-link" href="#">Pendafataran<span class="sr-only">(current)</span></a>
+        		<a class="nav-link" href="pendaftaran.php">Pendafataran<span class="sr-only">(current)</span></a>
       		</li>
       		<li class="nav-item">
-        		<a class="nav-link" href="#">About</a>
+        		<a class="nav-link" href="daftar_file.php">Daftar File</a>
       		</li>
       		<li class="nav-item">
         		<a class="nav-link" href="#">Pricing</a>
@@ -73,9 +93,29 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="tgl_lahir">TANGGAL LAHIR:</label>
+          <label class="control-label col-sm" for="tgl_lahir" name="tgl_lahir">TANGGAL LAHIR:</label>
           <div class="col-sm-10">
-          <input type="text" class="form-control" id="tgl_lahir" placeholder="Enter Birth" name="tgl_lahir">
+          <!-- <input type="text" class="form-control" id="tgl_lahir" placeholder="Enter Birth" name="tgl_lahir"> -->
+          <select name="tgl">
+            <option>Tanggal</option>
+            <?php for($tgl = 1; $tgl<=31; $tgl++){ ?>
+              <option value="<?php echo $tgl?>"><?php echo $tgl ?></option>
+            <?php } ?>
+          </select>
+          <select name="bln">
+            <option>Bulan</option>
+            <?php 
+              $bln = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+              foreach ($bln as $no => $array) { ?>
+                <option value="<?php echo $array ?>"><?php echo $array ?></option>
+              <?php } ?>
+          </select>
+          <select name="thn">
+            <option>Tahun</option>
+            <?php for($thn = 1980; $thn<=2020; $thn++){ ?>
+              <option value="<?php echo $thn?>"><?php echo $thn ?></option>
+            <?php } ?>
+          </select>
           </div>
         </div>
         <div class="form-group">
@@ -108,15 +148,22 @@
           <textarea class="form-control" rows="5" id="comment"></textarea>
           </div>
         </div> -->
+        <div class='form-group'>
+          <label class="control-label col-sm-2">FOTO:</label>
+          <div class="col-sm-10">
+          <input type='file' id="file" data-plugin="dropify" name='foto' required/>
+        </div>
+        </div>
         <div class="form-group">        
           <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-default" name="submit">DAFTAR</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 	
 	
