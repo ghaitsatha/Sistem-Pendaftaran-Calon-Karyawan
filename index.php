@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>PT SUKSES</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
  

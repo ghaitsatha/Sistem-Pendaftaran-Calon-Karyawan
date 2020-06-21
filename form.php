@@ -1,3 +1,23 @@
+<?php 
+    if(isset($_POST['submit'])){
+      include 'koneksi.php';
+      $submit = mysqli_query($koneksi, "INSERT INTO pegawai VALUES (
+        NULL,
+        '".$_POST['nik']."',
+        '".$_POST['nama']."',
+        '".$_POST['tgl_lahir']."-".$_POST['tgl']."-".$_POST['bln']."-".$_POST['thn']."',
+        '".$_POST['email']."',
+        '".$_POST['alamat']."',
+        '".$_POST['pendidikan']."',
+        '".$_POST['jurusan']."',
+        '".$_POST['foto']."')");
+      if($submit){
+        echo 'berhasil submit';
+      }else{
+        echo 'gagal submit';
+      }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,13 +106,10 @@
                                 <i class="fas fa-copy"></i>Pages</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a href="index.php">Login</a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a href="register.php">Register</a>
                                 </li>
                             </ul>
                         </li>
@@ -137,13 +154,10 @@
                                 <i class="fas fa-copy"></i>Pages</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a href="index.php">Login</a>
                                 </li>
                                 <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
+                                    <a href="register.php">Register</a>
                                 </li>
                             </ul>
                         </li>
@@ -162,7 +176,7 @@
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
                                 <input class="au-input au-input--xl" type="text" name="search" placeholder="Search" />
-                                <button class="au-btn--submit" type="submit">
+                                <button class="au-btn--submit" type="submit" name="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                             </form>
@@ -440,7 +454,7 @@
                                         </form>
                                     </div>
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
+                                        <button type="submit" class="btn btn-primary btn-sm" name="submit">
                                             <i class="fa fa-dot-circle-o"></i> Submit
                                         </button>
                                         <button type="reset" class="btn btn-danger btn-sm">

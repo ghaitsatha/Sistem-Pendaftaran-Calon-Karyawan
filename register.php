@@ -1,27 +1,4 @@
-<?php
-  // defenisikan koneksi
-  include ('koneksi.php');
-  // cek apakah tombol simpan sudah ditekan
-  if (isset($_POST['register'])) {
-    // jika sudah, ambil nilai masing-masing field
-    $nik    = $_POST['nik'];
-    $nama   = $_POST['nama'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $level = $_POST['level'];
-    // query menyimpan data ke database
-    $sql = "INSERT INTO user(nik,nama,username,password,level)
-            VALUES('','$nik','$nama','$username','$password','$level')";
-    // cek apakah proses simpan berhasil
-    if (mysqli_query($koneksi, $sql)) {
-      // jika berhasil, redirect ke index.php
-      header('Location:index.php');
-    } else {
-      // jika tidak, tampilkan pesan gagal menyimpan
-      echo "menyimpan data tidak berhasil";
-    }
-  }
- ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -39,7 +16,7 @@
     <title>SUKSES</title>
   </head>
   <body>
-    <form class="kotak_login" action="" method="POST">
+    <form class="kotak_login" action="register_aksi.php" method="post">
   <fieldset>
     <div id="legend">
       <legend class="tulisan_login">Register</legend>

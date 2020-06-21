@@ -1,23 +1,4 @@
-<?php 
-    if(isset($_POST['submit'])){
-      include 'koneksi.php';
-      $submit = mysqli_query($koneksi, "INSERT INTO pegawai VALUES (
-        NULL,
-        '".$_POST['nik']."',
-        '".$_POST['nama']."',
-        '".$_POST['tgl_lahir']."-".$_POST['tgl']."-".$_POST['bln']."-".$_POST['thn']."',
-        '".$_POST['email']."',
-        '".$_POST['alamat']."',
-        '".$_POST['pendidikan']."',
-        '".$_POST['jurusan']."',
-        '".$_POST['foto']."')");
-      if($submit){
-        echo 'berhasil submit';
-      }else{
-        echo 'gagal submit';
-      }
-    }
-?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -27,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
@@ -79,6 +60,7 @@
       </div>
     </div>
     <div class="col-md-9">
+      <form action="pendaftaran_aksi.php" method="post">
       <div class="contact-form">
         <div class="form-group">
           <label class="control-label col-sm-2" for="nik">NIK:</label>
@@ -161,6 +143,7 @@
         </div>
       </div>
     </div>
+  </form>
   </div>
 </div>
 

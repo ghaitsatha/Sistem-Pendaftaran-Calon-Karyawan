@@ -1,8 +1,4 @@
-<!-- <?php 
-  include ('koneksi.php');
 
-  $query = mysqli_query($koneksi,"SELECT * FROM pegawai ORDER BY id DESC");
- ?>  -->
 <!doctype html>
 <html lang="en">
   <head>
@@ -42,9 +38,6 @@
           <li class="nav-item">
             <a class="nav-link" href="daftar_file.php">Daftar File</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
       </ul>
       <span class="navbar-text">
           <a href="logout.php">Logout</a>
@@ -78,23 +71,23 @@
           </tr>
         </thead>
         <?php 
-          include 'koneksi.php';
+          include "koneksi.php";
           // $id_pegawai = 1;
-          $data = mysqli_query($koneksi,"select * from pegawai");
-          while($d = mysqli_fetch_array($data)){?>
+          $query = mysql_query("SELECT * FROM pegawai") or die (mysql_error());
+          while($data = mysql_fetch_array($query)){?>
           <tr>
              <!-- <th><?php echo $id_pegawai ?></th> -->
-             <th><?php $data['nik']; ?></th>
-             <th><?php $data['nama']; ?></th>
-             <th><?php $data['tgl_lahir']; ?></th>
-             <th><?php $data['email']; ?></th>
-             <th><?php $data['alamat']; ?></th>
-             <th><?php $data['pendidikan']; ?></th>
-             <th><?php $data['jurusan']; ?></th>
-             <th><?php $data['foto']; ?></th>
+             <th><?php echo $data['nik']; ?></th>
+             <th><?php echo $data['nama']; ?></th>
+             <th><?php echo $data['tgl_lahir']; ?></th>
+             <th><?php echo $data['email']; ?></th>
+             <th><?php echo $data['alamat']; ?></th>
+             <th><?php echo $data['pendidikan']; ?></th>
+             <th><?php echo $data['jurusan']; ?></th>
+             <th><?php echo "<img src = 'image/". $data['foto']."'style='width:200px; height:100px;'>"; ?></th>
              <th>
                <a href="#">Edit</a>
-               <a href="#">hapus</a>
+               <a href="proses_hapus.php?id=<?php echo $data['id']; ?>" onclick="return confirm('Yakin hapus data?')">Hapus</a>
              </th>
            </tr>
          <?php } ?>
