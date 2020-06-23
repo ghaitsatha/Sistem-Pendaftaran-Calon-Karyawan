@@ -59,6 +59,7 @@
         <thead>
           <tr>
             <!-- <th>NO</th> -->
+            <th>NO</th>
             <th>NIK</th>
             <th>NAMA</th>
             <th>TANGGAL LAHIR</th>
@@ -67,16 +68,18 @@
             <th>PENDIDIKAN</th>
             <th>JURUSAN</th>
             <th>FOTO</th>
-            <th>ACTION</th>
+            <!-- <th>ACTION</th> -->
           </tr>
         </thead>
         <?php 
           include "koneksi.php";
           // $id_pegawai = 1;
           $query = mysql_query("SELECT * FROM pegawai") or die (mysql_error());
+          $nomor=1;
           while($data = mysql_fetch_array($query)){?>
           <tr>
              <!-- <th><?php echo $id_pegawai ?></th> -->
+             <th align="center"><?php echo $nomor++; ?>.</th>
              <th><?php echo $data['nik']; ?></th>
              <th><?php echo $data['nama']; ?></th>
              <th><?php echo $data['tgl_lahir']; ?></th>
@@ -84,11 +87,11 @@
              <th><?php echo $data['alamat']; ?></th>
              <th><?php echo $data['pendidikan']; ?></th>
              <th><?php echo $data['jurusan']; ?></th>
-             <th><?php echo "<img src = 'image/". $data['foto']."'style='width:200px; height:100px;'>"; ?></th>
-             <th>
+             <th><?php echo "<img src = 'form/". $data['foto']."'style='width:200px; height:100px;'>"; ?></th>
+             <!-- <th>
                <a href="#">Edit</a>
                <a href="proses_hapus.php?id=<?php echo $data['id']; ?>" onclick="return confirm('Yakin hapus data?')">Hapus</a>
-             </th>
+             </th> -->
            </tr>
          <?php } ?>
       </table>

@@ -354,7 +354,7 @@
                                         <strong>PT SUKSES</strong> Form Pendaftaran
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <form action="form_aksi.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label class=" form-control-label">Username</label>
@@ -448,19 +448,17 @@
                                                     <label for="file-input" class=" form-control-label">FOTO</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-input" name="file-input" class="form-control-file">
+                                                    <input type="file" id="file-input" name="foto" class="form-control-file">
                                                 </div>
                                             </div>
-                                        </form>
+                                        
                                     </div>
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary btn-sm" name="submit">
                                             <i class="fa fa-dot-circle-o"></i> Submit
                                         </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-ban"></i> Reset
-                                        </button>
                                     </div>
+                                </form>
                                 </div>
                             </div>
                         </div>

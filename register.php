@@ -16,7 +16,7 @@
     <title>SUKSES</title>
   </head>
   <body>
-    <form class="kotak_login" action="register_aksi.php" method="post">
+    <form action="register_aksi.php" method="post" class="kotak_login">
   <fieldset>
     <div id="legend">
       <legend class="tulisan_login">Register</legend>
@@ -61,9 +61,10 @@
       <!-- Password -->
       <label class="control-label" for="level" >Level</label>
       <div class="controls">
-        <select class="input-xlarge" id="level" name="level">
-          <option>Admin</option>
-          <option>Calon Pegawai</option>
+        <select class="input-xlarge" id="level" name="id_level">
+          <option>Pilih Level</option>
+          <option>1. Admin</option>
+          <option>2. Calon Pegawai</option>
         </select>
       </div>
     </div>

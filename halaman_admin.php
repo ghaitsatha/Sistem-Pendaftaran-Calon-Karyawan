@@ -154,11 +154,11 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search" />
-                                <button class="au-btn--submit" type="submit">
+                            <form class="form-header" action="halaman_admin.php" method="get">
+                                <!-- <input value="cari" class="au-input au-input--xl" type="text" name="search" placeholder="Search" />
+                                <button class="au-btn--submit" type="submit" value="cari">
                                     <i class="zmdi zmdi-search"></i>
-                                </button>
+                                </button> -->
                             </form>
                             <div class="header-button">
 <!--                                 <div class="noti-wrap">

@@ -353,6 +353,7 @@
                                     <table class="table table-data2">
                                         <thead>
                                             <tr>
+                                                <th>no</th>
                                                 <th>nik</th>
                                                 <th>nama</th>
                                                 <th>tanggal lahir</th>
@@ -361,10 +362,45 @@
                                                 <th>pendidikan</th>
                                                 <th>jurusan</th>
                                                 <th>foto</th>
-                                                <th></th>
+                                                <th>action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php 
+                                          include "koneksi.php";
+                                          // $id_pegawai = 1;
+                                          $query = mysql_query("SELECT * FROM pegawai") or die (mysql_error());
+                                          $nomor=1;
+                                          while($data = mysql_fetch_array($query)){?>
+                                          <tr>
+                                             <!-- <th><?php echo $id_pegawai ?></th> -->
+                                             <th align="center"><?php echo $nomor++; ?>.</th>
+                                             <th><?php echo $data['nik']; ?></th>
+                                             <th><?php echo $data['nama']; ?></th>
+                                             <th><?php echo $data['tgl_lahir']; ?></th>
+                                             <th><?php echo $data['email']; ?></th>
+                                             <th><?php echo $data['alamat']; ?></th>
+                                             <th><?php echo $data['pendidikan']; ?></th>
+                                             <th><?php echo $data['jurusan']; ?></th>
+                                             <th><?php echo "<img src = 'image/". $data['foto']."'style='width:200px; height:100px;'>"; ?></th>
+                                             <th>
+                                               <div class="table-data-feature">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <a href="form_edit.php?id=<?php echo $data['id']; ?>">
+                                                                <i class="zmdi zmdi-edit"></i>
+                                                            </a>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <a href="proses_hapus.php?id=<?php echo $data['id_pegawai']; ?>" onclick="return confirm('Yakin hapus data?')">
+                                                                <i class="zmdi zmdi-delete"></i>
+                                                            </a>
+                                                        </button>
+                                                </div>
+                                             </th>
+                                           </tr>
+                                         <?php } ?>
+                                         </tbody>
+                                        <!-- <tbody>
                                             <tr class="tr-shadow">
                                                 <td>xx</td>
                                                 <td>
@@ -395,7 +431,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                        </tbody>
+                                        </tbody> -->
                                     </table>
                                 </div>
                             </div>

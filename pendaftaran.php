@@ -38,9 +38,6 @@
       		<li class="nav-item">
         		<a class="nav-link" href="daftar_file.php">Daftar File</a>
       		</li>
-      		<li class="nav-item">
-        		<a class="nav-link" href="#">Pricing</a>
-      		</li>
     	</ul>
     	<span class="navbar-text">
       		<a href="logout.php">Logout</a>
