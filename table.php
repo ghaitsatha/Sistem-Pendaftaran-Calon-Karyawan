@@ -158,9 +158,9 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search" />
+                                <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search" />
                                 <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
+                                    <i class="zmdi zmdi-search"></i> -->
                                 </button>
                             </form>
                             <div class="header-button">
@@ -386,12 +386,12 @@
                                              <th>
                                                <div class="table-data-feature">
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <a href="form_edit.php?id=<?php echo $data['id']; ?>">
+                                                            <a href="form_edit.php?id_pegawai=<?php echo $data['id_pegawai']; ?>">
                                                                 <i class="zmdi zmdi-edit"></i>
                                                             </a>
                                                         </button>
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <a href="proses_hapus.php?id=<?php echo $data['id_pegawai']; ?>" onclick="return confirm('Yakin hapus data?')">
+                                                            <a href="proses_hapus.php?id_pegawai=<?php echo $data['id_pegawai']; ?>" onclick="return confirm('Yakin hapus data?')">
                                                                 <i class="zmdi zmdi-delete"></i>
                                                             </a>
                                                         </button>

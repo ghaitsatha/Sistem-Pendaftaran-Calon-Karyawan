@@ -11,7 +11,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Form Pendaftaran</title>
+    <title>Form Edit</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -332,10 +332,16 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>PT SUKSES</strong> Form Pendaftaran
+                                        <strong>PT SUKSES</strong> Form Edit Pendaftaran
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="form_aksi.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <form action="proses_edit.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                            <?php 
+                                            include "koneksi.php";
+                                            $id_pegawai = $_GET['id_pegawai'];
+                                            $query = mysql_query("SELECT * FROM pegawai WHERE id_pegawai = '$id_pegawai'") or die(mysql_error());
+                                            $data = mysql_fetch_array($query);
+                                            ?>  
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label class=" form-control-label">Username</label>
@@ -349,8 +355,9 @@
                                                     <label for="nik" class=" form-control-label">NIK</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="nik" name="nik" placeholder="NIK" class="form-control">
-                                                    <small class="form-text text-muted">Please enter your nik</small>
+                                                    <input type="hidden" name="id_pegawai" value="<?php echo $data['id_pegawai'] ?>">
+                                                    <input disabled="disable" type="text" id="nik" name="nik" placeholder="NIK" class="form-control" value="<?php echo $data['nik'] ?>" required>
+                                                   <!--  <small class="form-text text-muted">Please enter your nik</small> -->
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -358,7 +365,7 @@
                                                     <label for="nama" class=" form-control-label">NAMA</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="nama" name="nama" placeholder="Name" class="form-control">
+                                                    <input type="text" id="nama" name="nama" placeholder="Name" class="form-control" value="<?php echo $data['nama'] ?>" required>
                                                     <small class="help-block form-text">Please enter your name</small>
                                                 </div>
                                             </div>
@@ -368,13 +375,13 @@
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                   <select name="tgl" id="select">
-                                                    <option>Tanggal</option>
+                                                    <option value="<?php echo $data['tgl_lahir'] ?>" required>Tanggal</option>
                                                     <?php for($tgl = 1; $tgl<=31; $tgl++){ ?>
                                                       <option value="<?php echo $tgl?>"><?php echo $tgl ?></option>
                                                     <?php } ?>
                                                   </select>
                                                   <select name="bln" id="select">
-                                                    <option>Bulan</option>
+                                                    <option value="<?php echo $data['tgl_lahir'] ?>" required>Bulan</option>
                                                     <?php 
                                                       $bln = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
                                                       foreach ($bln as $no => $array) { ?>
@@ -382,7 +389,7 @@
                                                       <?php } ?>
                                                   </select>
                                                   <select name="thn" id="select">
-                                                    <option>Tahun</option>
+                                                    <option value="<?php echo $data['tgl_lahir'] ?>" required>Tahun</option>
                                                     <?php for($thn = 1980; $thn<=2020; $thn++){ ?>
                                                       <option value="<?php echo $thn?>"><?php echo $thn ?></option>
                                                     <?php } ?>
@@ -394,7 +401,7 @@
                                                     <label for="email" class=" form-control-label">EMAIL</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="email" id="email" name="email" placeholder="Email" class="form-control">
+                                                    <input disabled="disable" type="email" id="email" name="email" placeholder="Email" class="form-control" value="<?php echo $data['email'] ?>" required>
                                                     <small class="help-block form-text">Please enter your email</small>
                                                 </div>
                                             </div>
@@ -403,7 +410,7 @@
                                                     <label for="alamat" class=" form-control-label">ALAMAT</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <textarea name="alamat" id="alamat" rows="9" placeholder="Alamat" class="form-control"></textarea>
+                                                    <textarea name="alamat" id="alamat" rows="9" placeholder="Alamat" class="form-control" value="<?php echo $data['alamat'] ?>" required></textarea>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -411,7 +418,7 @@
                                                     <label for="pendidikan" class=" form-control-label">PENDIDIKAN</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="pendidikan" name="pendidikan" placeholder="Pendidikan" class="form-control">
+                                                    <input type="text" id="pendidikan" name="pendidikan" placeholder="Pendidikan" class="form-control" value="<?php echo $data['pendidikan'] ?>" required>
                                                     <small class="help-block form-text">Please enter your education</small>
                                                 </div>
                                             </div>
@@ -420,7 +427,7 @@
                                                     <label for="jurusan" class=" form-control-label">JURUSAN</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="jurusan" name="jurusan" placeholder="Jurusan" class="form-control">
+                                                    <input type="text" id="jurusan" name="jurusan" placeholder="Jurusan" class="form-control" value="<?php echo $data['jurusan'] ?>" required>
                                                     <small class="help-block form-text">Please enter your majors</small>
                                                 </div>
                                             </div>
@@ -429,9 +436,11 @@
                                                     <label for="file-input" class=" form-control-label">FOTO</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="file" id="file-input" name="foto" class="form-control-file">
+                                                    <input type="file" id="file-input" name="foto" class="form-control-file" value="<?php echo $data['foto'] ?>" required>
                                                 </div>
                                             </div>
+                                        
+                                    </div>
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary btn-sm" name="submit">
                                             <i class="fa fa-dot-circle-o"></i> Submit

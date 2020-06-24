@@ -1,5 +1,5 @@
 <?php 
-include 'koneksi.php';
+include "koneksi.php";
 $id_pegawai = $_GET['id_pegawai'];
 $query = mysql_query("DELETE FROM pegawai WHERE id_pegawai = '$id_pegawai'") or die(mysql_error());
 if($query) {
