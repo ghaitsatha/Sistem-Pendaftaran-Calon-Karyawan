@@ -424,14 +424,14 @@
                                                     <small class="help-block form-text">Please enter your majors</small>
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
+                                            <!-- <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="file-input" class=" form-control-label">FOTO</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     <input type="file" id="file-input" name="foto" class="form-control-file">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary btn-sm" name="submit">
                                             <i class="fa fa-dot-circle-o"></i> Submit

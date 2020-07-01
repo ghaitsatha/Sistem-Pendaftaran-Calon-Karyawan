@@ -7,9 +7,9 @@
 	$alamat = $_POST['alamat'];
 	$pendidikan = $_POST['pendidikan'];
 	$jurusan = $_POST['jurusan'];
-	$foto = $_POST['foto'];
+	// $foto = $_POST['foto'];
 
-	$query = mysql_query("INSERT INTO pegawai VALUES('','$nik','$nama','$tgl_lahir','$email','$alamat','$pendidikan','$jurusan','$foto')");
+	$query = mysql_query("INSERT INTO pegawai VALUES('','$nik','$nama','$tgl_lahir','$email','$alamat','$pendidikan','$jurusan')");
 	// header("location:daftar_file.php?pesan=input");
 	if($query) {
     echo "<script>alert('Data berhasil ditambahkan!'); window.location='table.php';</script>";

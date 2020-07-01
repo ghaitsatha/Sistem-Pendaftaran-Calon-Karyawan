@@ -361,7 +361,7 @@
                                                 <th>alamat</th>
                                                 <th>pendidikan</th>
                                                 <th>jurusan</th>
-                                                <th>foto</th>
+                                                <!-- <th>foto</th> -->
                                                 <th>action</th>
                                             </tr>
                                         </thead>
@@ -382,7 +382,7 @@
                                              <th><?php echo $data['alamat']; ?></th>
                                              <th><?php echo $data['pendidikan']; ?></th>
                                              <th><?php echo $data['jurusan']; ?></th>
-                                             <th><?php echo "<img src = 'image/". $data['foto']."'style='width:200px; height:100px;'>"; ?></th>
+                                             <!-- <th><?php echo "<img src = 'image/". $data['foto']."'style='width:200px; height:100px;'>"; ?></th> -->
                                              <th>
                                                <div class="table-data-feature">
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">

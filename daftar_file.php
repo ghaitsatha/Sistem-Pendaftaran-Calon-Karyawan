@@ -67,7 +67,7 @@
             <th>ALAMAT</th>
             <th>PENDIDIKAN</th>
             <th>JURUSAN</th>
-            <th>FOTO</th>
+            <!-- <th>FOTO</th> -->
             <!-- <th>ACTION</th> -->
           </tr>
         </thead>
@@ -87,7 +87,8 @@
              <th><?php echo $data['alamat']; ?></th>
              <th><?php echo $data['pendidikan']; ?></th>
              <th><?php echo $data['jurusan']; ?></th>
-             <th><?php echo "<img src = 'form/". $data['foto']."'style='width:200px; height:100px;'>"; ?></th>
+<!--              <th><img src="images/<?php echo $data['foto'];?>" width="100px" height="50px"></th>
+             <th><?php echo $data['foto'];?></th> -->
              <!-- <th>
                <a href="#">Edit</a>
                <a href="proses_hapus.php?id=<?php echo $data['id']; ?>" onclick="return confirm('Yakin hapus data?')">Hapus</a>

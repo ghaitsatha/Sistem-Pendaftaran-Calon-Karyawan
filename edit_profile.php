@@ -38,9 +38,6 @@
       		<li class="nav-item">
         		<a class="nav-link" href="daftar_file.php">Daftar File</a>
       		</li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="edit_profile.php">Setting</a>
-          </li> -->
     	</ul>
     	<span class="navbar-text">
       		<a href="logout.php">Logout</a>
@@ -56,74 +53,38 @@
       <div class="contact-info">
         <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
         <h2>PT SUKSES</h2>
-        <p>Form Pendaftaran Calon Karyawan PT SUKSES</p>
+        <p>EDIT PROFILE</p>
       </div>
     </div>
     <div class="col-md-9">
-      <form action="pendaftaran_aksi.php" method="post">
+      <form action="profile_aksi.php" method="post">
+        <?php 
+          include "koneksi.php";
+          $id_user = $_GET['id_user'];
+          $query = mysql_query("SELECT * FROM user WHERE id_user = '$id_user'") or die(mysql_error());
+          $data = mysql_fetch_array($query);
+         ?>
       <div class="contact-form">
         <div class="form-group">
           <label class="control-label col-sm-2" for="nik">NIK:</label>
-          <div class="col-sm-10">          
-          <input type="text" class="form-control" id="nik" placeholder="Enter NIK" name="nik">
+          <div class="col-sm-10"> 
+          <input type="hidden" name="id_user" value="<?php echo $data['id_user'] ?>">
+          <input type="text" class="form-control" id="nik" placeholder="Enter NIK" name="nik" value="<?php echo $data['nik'] ?>" required>
           </div>
         </div>
         <div class="form-group">
           <label class="control-label col-sm-2" for="nama">NAMA:</label>
           <div class="col-sm-10">          
-          <input type="text" class="form-control" id="name" placeholder="Enter Name" name="nama">
+          <input type="text" class="form-control" id="name" placeholder="Enter Name" name="nama" value="<?php echo $data['nama'] ?>" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm" for="tgl_lahir" name="tgl_lahir">TANGGAL LAHIR:</label>
-          <div class="col-sm-10">
-          <!-- <input type="text" class="form-control" id="tgl_lahir" placeholder="Enter Birth" name="tgl_lahir"> -->
-          <select name="tgl">
-            <option>Tanggal</option>
-            <?php for($tgl = 1; $tgl<=31; $tgl++){ ?>
-              <option value="<?php echo $tgl?>"><?php echo $tgl ?></option>
-            <?php } ?>
-          </select>
-          <select name="bln">
-            <option>Bulan</option>
-            <?php 
-              $bln = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
-              foreach ($bln as $no => $array) { ?>
-                <option value="<?php echo $array ?>"><?php echo $array ?></option>
-              <?php } ?>
-          </select>
-          <select name="thn">
-            <option>Tahun</option>
-            <?php for($thn = 1980; $thn<=2020; $thn++){ ?>
-              <option value="<?php echo $thn?>"><?php echo $thn ?></option>
-            <?php } ?>
-          </select>
+          <label class="control-label col-sm-2" for="nama">USERNAME:</label>
+          <div class="col-sm-10">          
+          <input type="text" class="form-control" id="username" placeholder="Enter Name" name="username" value="<?php echo $data['username'] ?>" required>
           </div>
         </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="email">EMAIL:</label>
-          <div class="col-sm-10">
-          <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="alamat">ALAMAT:</label>
-          <div class="col-sm-10">
-          <input type="text" class="form-control" id="alamat" placeholder="Enter Address" name="alamat">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="pendidikan">PENDIDIKAN:</label>
-          <div class="col-sm-10">
-          <input type="text" class="form-control" id="pendidikan" placeholder="Enter Education" name="pendidikan">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="jurusan">JURUSAN:</label>
-          <div class="col-sm-10">
-          <input type="text" class="form-control" id="jurusan" placeholder="Enter Majors" name="jurusan">
-          </div>
-        </div>
+
         <!-- <div class="form-group">
           <label class="control-label col-sm-2" for="comment">Comment:</label>
           <div class="col-sm-10">
